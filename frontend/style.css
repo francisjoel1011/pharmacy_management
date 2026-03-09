@@ -1,0 +1,445 @@
+/* ================================================================
+   Pharmacy Inventory Management System - Custom Styles
+   Stack: HTML5 + CSS3 + Bootstrap 5
+   ================================================================ */
+
+/* ─── CSS Variables (Design Tokens) ─────────────────────────── */
+:root {
+    --primary-color:    #0d6efd;
+    --success-color:    #198754;
+    --danger-color:     #dc3545;
+    --warning-color:    #ffc107;
+    --info-color:       #0dcaf0;
+    --dark-color:       #1a1f2e;
+    --card-shadow:      0 4px 20px rgba(0, 0, 0, 0.12);
+    --transition-speed: 0.3s;
+}
+
+/* ─── Global Reset & Base ────────────────────────────────────── */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f0f2f5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    min-height: 100vh;
+}
+
+/* ─── Navigation Bar ─────────────────────────────────────────── */
+.navbar {
+    background: linear-gradient(135deg, #1a1f2e 0%, #0d6efd 100%) !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    padding: 0.9rem 1.5rem;
+}
+
+.navbar-brand {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #fff !important;
+}
+
+.navbar-brand i {
+    margin-right: 8px;
+    color: #ffc107;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: rgba(255,255,255,0.85) !important;
+    transition: color var(--transition-speed);
+    padding: 0.5rem 1rem !important;
+    border-radius: 6px;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #fff !important;
+    background-color: rgba(255,255,255,0.15);
+}
+
+/* ─── Page Header / Hero Section ────────────────────────────── */
+.page-header {
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+    color: white;
+    padding: 2.5rem 0;
+    margin-bottom: 2rem;
+    box-shadow: 0 3px 12px rgba(13, 110, 253, 0.3);
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+}
+
+.page-header p {
+    font-size: 1rem;
+    opacity: 0.85;
+}
+
+/* ─── Dashboard Stats Cards ─────────────────────────────────── */
+.stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--card-shadow);
+    border-left: 5px solid;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.stat-card.total    { border-color: var(--primary-color); }
+.stat-card.low      { border-color: var(--warning-color); }
+.stat-card.expired  { border-color: var(--danger-color); }
+.stat-card.categories { border-color: var(--success-color); }
+
+.stat-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.stat-card.total     .stat-icon { background: #dbeafe; color: var(--primary-color); }
+.stat-card.low       .stat-icon { background: #fef3c7; color: #d97706; }
+.stat-card.expired   .stat-icon { background: #fee2e2; color: var(--danger-color); }
+.stat-card.categories .stat-icon { background: #d1fae5; color: var(--success-color); }
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #1a1f2e;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-top: 0.25rem;
+}
+
+/* ─── Table Container Card ───────────────────────────────────── */
+.table-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+}
+
+.table-card-header {
+    background: linear-gradient(135deg, #1a1f2e 0%, #2d3748 100%);
+    color: white;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.table-card-header h5 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+/* ─── Search & Filter Bar ────────────────────────────────────── */
+.search-bar {
+    background: white;
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 1.5rem;
+}
+
+.search-bar .form-control,
+.search-bar .form-select {
+    border-radius: 8px;
+    border: 1.5px solid #e0e0e0;
+    padding: 0.6rem 1rem;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.search-bar .form-control:focus,
+.search-bar .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15);
+}
+
+/* ─── Data Table ─────────────────────────────────────────────── */
+.medicine-table {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.medicine-table thead th {
+    background: #f8faff;
+    color: #374151;
+    font-weight: 600;
+    border-bottom: 2px solid #e5e7eb;
+    padding: 1rem 1.2rem;
+    white-space: nowrap;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.medicine-table tbody td {
+    padding: 0.9rem 1.2rem;
+    vertical-align: middle;
+    border-bottom: 1px solid #f3f4f6;
+    color: #374151;
+}
+
+.medicine-table tbody tr:hover {
+    background-color: #f0f7ff;
+    transition: background-color 0.2s;
+}
+
+/* ─── EXPIRED ROW HIGHLIGHT (Core Feature) ───────────────────── */
+/*
+ * This is the key UI requirement:
+ * If a medicine's expiry date is before today,
+ * the entire row is highlighted in red with white text.
+ */
+.expired-row {
+    background-color: #dc3545 !important;
+    color: #ffffff !important;
+    font-weight: 500;
+}
+
+.expired-row td {
+    color: #ffffff !important;
+    border-bottom: 1px solid #c0392b !important;
+}
+
+.expired-row:hover {
+    background-color: #c82333 !important;
+}
+
+/* Keep action buttons visible on expired rows */
+.expired-row .btn-outline-primary {
+    border-color: white;
+    color: white;
+}
+
+.expired-row .btn-outline-danger {
+    border-color: #ffe0e0;
+    color: #ffe0e0;
+}
+
+.expired-row .badge {
+    background-color: #721c24 !important;
+    color: white !important;
+}
+
+/* ─── Badges ─────────────────────────────────────────────────── */
+.category-badge {
+    background: #e0e7ff;
+    color: #4338ca;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.stock-badge {
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.stock-ok      { background: #d1fae5; color: #065f46; }
+.stock-low     { background: #fef3c7; color: #92400e; }
+.stock-critical{ background: #fee2e2; color: #991b1b; }
+
+/* ─── Action Buttons ─────────────────────────────────────────── */
+.btn-action {
+    padding: 0.3rem 0.65rem;
+    font-size: 0.8rem;
+    border-radius: 6px;
+    transition: all var(--transition-speed);
+}
+
+.btn-action:hover {
+    transform: scale(1.08);
+}
+
+/* ─── Forms ──────────────────────────────────────────────────── */
+.form-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+}
+
+.form-card-header {
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+    color: white;
+    padding: 1.25rem 1.75rem;
+}
+
+.form-card-header h4 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.form-body {
+    padding: 2rem 1.75rem;
+}
+
+.form-label {
+    font-weight: 600;
+    color: #374151;
+    font-size: 0.88rem;
+    margin-bottom: 0.4rem;
+}
+
+.form-label .required {
+    color: var(--danger-color);
+    margin-left: 3px;
+}
+
+.form-control, .form-select {
+    border: 1.5px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    font-size: 0.92rem;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(13,110,253,0.15);
+    outline: none;
+}
+
+.form-control.is-invalid {
+    border-color: var(--danger-color);
+}
+
+.invalid-feedback {
+    font-size: 0.8rem;
+    color: var(--danger-color);
+}
+
+/* ─── Buttons ────────────────────────────────────────────────── */
+.btn {
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all var(--transition-speed);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #0d6efd, #0a58ca);
+    border: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #0a58ca, #0d6efd);
+    box-shadow: 0 4px 15px rgba(13, 110, 253, 0.4);
+    transform: translateY(-1px);
+}
+
+.btn-danger:hover {
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.4);
+}
+
+/* ─── Toast Notifications ────────────────────────────────────── */
+.toast-container {
+    position: fixed;
+    top: 1.25rem;
+    right: 1.25rem;
+    z-index: 9999;
+}
+
+.toast {
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    min-width: 280px;
+}
+
+/* ─── Modal ──────────────────────────────────────────────────── */
+.modal-header {
+    background: linear-gradient(135deg, #0d6efd, #0a58ca);
+    color: white;
+    border-radius: 12px 12px 0 0;
+    padding: 1.25rem 1.5rem;
+}
+
+.modal-header .btn-close {
+    filter: invert(1);
+}
+
+.modal-content {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+/* ─── Loading Spinner ────────────────────────────────────────── */
+#loadingSpinner {
+    display: none;
+    text-align: center;
+    padding: 3rem;
+    color: var(--primary-color);
+}
+
+/* ─── Empty State ────────────────────────────────────────────── */
+#emptyState {
+    display: none;
+    text-align: center;
+    padding: 3rem;
+    color: #9ca3af;
+}
+
+#emptyState i {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: #d1d5db;
+}
+
+/* ─── Footer ─────────────────────────────────────────────────── */
+footer {
+    background: linear-gradient(135deg, #1a1f2e, #2d3748);
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 1.25rem;
+    margin-top: 3rem;
+    font-size: 0.88rem;
+}
+
+footer span {
+    color: #ffc107;
+}
+
+/* ─── Responsive Adjustments ─────────────────────────────────── */
+@media (max-width: 768px) {
+    .page-header h1 { font-size: 1.5rem; }
+    .stat-card       { padding: 1rem; }
+    .stat-value      { font-size: 1.5rem; }
+    .table-responsive { font-size: 0.82rem; }
+    .form-body       { padding: 1.25rem; }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand    { font-size: 1.1rem; }
+    .table-card-header { flex-direction: column; align-items: flex-start; }
+}
